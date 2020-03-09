@@ -1,0 +1,40 @@
+<%- include('partials/header'); -%>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome to Enquiry Section!!</h1>
+            <p>View Enquries from all over the world</p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="/corona/enquiry/new">Add new Enquiry</a>
+            </p>
+            <div>
+                <form action="/corona/enquiry" method="GET" class="form-inline">
+                    <div class="input-group mb-3">
+                        <input type="text" name="search" class="form-control" placeholder="Enquiry Search....." aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <input type="submit" value="search" class="btn btn-outline-info" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+	<div class="row text-center" style="display:flex flex-wrap: wrap;">
+    <% enquiry.forEach(function(enquiry){ %>
+    <div id="whitebg" class=" col-md-4 col-sm-6 rcorners1 img-thumbnail">
+        <div class="caption">
+            <h4> <%= enquiry.name %> </h4>
+        </div>
+        <p>
+            <%= enquiry.description %>
+        </p>
+        <p>
+            <a href="/corona/enquiry/<%= enquiry._id %>" class="btn btn-primary">More Info!!</a>
+        </p>
+    </div>
+    <% } ); %>
+</div>
+</div>
+
+<%- include('partials/footer'); -%>
